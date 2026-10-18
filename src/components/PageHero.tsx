@@ -24,9 +24,9 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className={`mb-pagehero${image ? " has-image" : ""}`}>
-      <div className="wrap mb-pagehero-in">
-        <div className="mb-pagehero-copy">
+    <section className={`lt-hero lt-pagehero${image ? "" : " no-image"}`}>
+      <div className="wrap lt-hero-in">
+        <div className="lt-band">
           <nav className="crumbs" aria-label="Fil d'Ariane">
             {[{ label: "Accueil", href: "/" }, ...parents].map((crumb) => (
               <span key={crumb.href}>
@@ -39,11 +39,17 @@ export function PageHero({
             <span aria-current="page">{current}</span>
           </nav>
           <h1>{title}</h1>
-          {intro ? <p className="mb-pagehero-intro">{intro}</p> : null}
-          {children}
         </div>
-        {image ? (
-          <div className="mb-pagehero-card">
+        {intro || children ? (
+          <div className="lt-hero-below">
+            {intro ? <p>{intro}</p> : null}
+            {children}
+          </div>
+        ) : null}
+      </div>
+      {image ? (
+        <div className="lt-hero-media is-single">
+          <div className="lt-hero-photo">
             <Image
               src={image}
               alt={imageAlt}
@@ -53,8 +59,8 @@ export function PageHero({
               className="cover"
             />
           </div>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
     </section>
   );
 }

@@ -19,25 +19,14 @@ const siteLinks = [
 export function SiteFooter() {
   return (
     <>
-      <footer className="footer">
-        <div className="wrap foot-grid">
-          <div>
-            <p className="f-kick">Fondation Mbûrü</p>
-            <h4>À propos de nous</h4>
-            <p>
-              Organisation centrafricaine à but non lucratif pour l&apos;éducation
-              des filles, l&apos;autonomie économique et la santé des femmes. Paix,
-              sécurité, développement durable.
-            </p>
-            <Link href="/a-propos" className="f-more">
-              En savoir plus
-              <Icon name="arrow-right" size={16} />
-            </Link>
+      <footer className="lt-foot">
+        <div className="wrap lt-foot-top">
+          <div className="lt-foot-brand">
+            <strong>Fondation Mbûrü</strong>
+            <p>{site.slogan}</p>
           </div>
-
-          <div>
-            <p className="f-kick">Nos actions</p>
-            <h4>Ce que nous faisons</h4>
+          <nav className="lt-foot-col" aria-label="Nos actions">
+            <h4>Nos actions</h4>
             <ul>
               {actionLinks.map((item) => (
                 <li key={item.href}>
@@ -45,11 +34,9 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <p className="f-kick">Navigation</p>
-            <h4>Le site</h4>
+          </nav>
+          <nav className="lt-foot-col" aria-label="Le site">
+            <h4>La Fondation</h4>
             <ul>
               {siteLinks.map((item) => (
                 <li key={item.href}>
@@ -57,79 +44,71 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <p className="f-kick">Contact</p>
+          </nav>
+          <div className="lt-foot-col">
             <h4>Nous joindre</h4>
-            <ul className="foot-contact">
+            <ul>
               <li>
-                <Icon name="pin" size={16} />
-                <span>
-                  {site.address}, {site.location}
-                </span>
+                {site.address}, {site.location}
               </li>
               <li>
-                <Icon name="phone" size={16} />
                 <a href={`tel:${site.phoneHref}`}>{site.phone}</a>
               </li>
               {site.phone2 ? (
                 <li>
-                  <Icon name="phone" size={16} />
                   <a href={`tel:${site.phone2Href}`}>{site.phone2}</a>
                 </li>
               ) : null}
               <li>
-                <Icon name="mail" size={16} />
                 <a href={`mailto:${site.email}`}>{site.email}</a>
               </li>
+              {site.orangeMoney ? <li>Orange Money : {site.orangeMoney}</li> : null}
             </ul>
-            {site.orangeMoney ? (
-              <div className="foot-om">
-                <span>Orange Money</span>
-                <strong>{site.orangeMoney}</strong>
-              </div>
-            ) : null}
-            <div className="f-social">
-              <a
-                href={site.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook - Fondation Mbûrü"
-              >
-                <Icon name="facebook" size={20} />
-              </a>
-              <a
-                href={`https://wa.me/${site.phoneHref.replace("+", "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp - Fondation Mbûrü"
-              >
-                <Icon name="whatsapp" size={20} />
-              </a>
-              <a href={`mailto:${site.email}`} aria-label="Envoyer un e-mail à la Fondation Mbûrü">
-                <Icon name="mail" size={20} />
-              </a>
-            </div>
           </div>
         </div>
 
-        <div className="foot-bottom">
-          <div className="wrap foot-bottom-in">
-            <span>
-              © {site.founded} {site.name}. {site.slogan}
-            </span>
-            <span className="foot-links">
-              <Link href="/mentions-legales">Mentions légales</Link>
-              <Link href="/mentions-legales#confidentialite">Confidentialité</Link>
-              <Link href="/conditions">Conditions d&apos;utilisation</Link>
-              <Link href="/credits">Crédits photo</Link>
-              <a href="#top" className="to-top">
-                Retour en haut de page
-                <Icon name="arrow-up-right" size={16} />
-              </a>
-            </span>
+        <div className="wrap lt-foot-mid">
+          <p>
+            Organisation centrafricaine à but non lucratif pour l&apos;éducation des
+            filles, l&apos;autonomie économique et la santé des femmes.
+          </p>
+          <div className="lt-foot-social">
+            <a
+              href={site.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook - Fondation Mbûrü"
+            >
+              <Icon name="facebook" size={20} />
+            </a>
+            <a
+              href={`https://wa.me/${site.phoneHref.replace("+", "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp - Fondation Mbûrü"
+            >
+              <Icon name="whatsapp" size={20} />
+            </a>
+            <a href={`mailto:${site.email}`} aria-label="Envoyer un e-mail à la Fondation Mbûrü">
+              <Icon name="mail" size={20} />
+            </a>
           </div>
+        </div>
+
+        <div className="wrap lt-foot-bottom">
+          <span className="foot-links">
+            <Link href="/mentions-legales">Mentions légales</Link>
+            <Link href="/mentions-legales#confidentialite">Confidentialité</Link>
+            <Link href="/conditions">Conditions d&apos;utilisation</Link>
+            <Link href="/credits">Crédits photo</Link>
+            <a href="#top" className="to-top">
+              Retour en haut de page
+              <Icon name="arrow-up-right" size={16} />
+            </a>
+          </span>
+          <span>
+            © {site.founded} {site.name}
+          </span>
         </div>
       </footer>
 
