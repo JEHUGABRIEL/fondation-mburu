@@ -41,7 +41,7 @@ const registrationSchema = z.object({
   name: required(120, "Le nom"),
   phone: required(40, "Le téléphone"),
   email: optionalEmail,
-  formation: required(100, "La formation"),
+  formation: required(100, "Le programme"),
   paymentMethod: z.enum(["orange_money", "especes"], {
     message: "Choisissez un mode de paiement.",
   }),

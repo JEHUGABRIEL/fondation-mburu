@@ -24,10 +24,10 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className="hero page-hero">
-      <div className="hero-left">
-        <div className="hero-card">
-          <nav className="kicker light crumbs" aria-label="Fil d'Ariane">
+    <section className={`mb-pagehero${image ? " has-image" : ""}`}>
+      <div className="wrap mb-pagehero-in">
+        <div className="mb-pagehero-copy">
+          <nav className="crumbs" aria-label="Fil d'Ariane">
             {[{ label: "Accueil", href: "/" }, ...parents].map((crumb) => (
               <span key={crumb.href}>
                 <Link href={crumb.href}>{crumb.label}</Link>
@@ -39,22 +39,22 @@ export function PageHero({
             <span aria-current="page">{current}</span>
           </nav>
           <h1>{title}</h1>
-          {intro ? <p className="hero-txt">{intro}</p> : null}
+          {intro ? <p className="mb-pagehero-intro">{intro}</p> : null}
           {children}
         </div>
+        {image ? (
+          <div className="mb-pagehero-card">
+            <Image
+              src={image}
+              alt={imageAlt}
+              fill
+              priority
+              sizes="(max-width: 980px) 92vw, 44vw"
+              className="cover"
+            />
+          </div>
+        ) : null}
       </div>
-      {image ? (
-        <div className="hero-right">
-          <Image
-            src={image}
-            alt={imageAlt}
-            fill
-            priority
-            sizes="(max-width: 980px) 100vw, 54vw"
-            className="cover"
-          />
-        </div>
-      ) : null}
     </section>
   );
 }

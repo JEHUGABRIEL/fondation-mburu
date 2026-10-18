@@ -179,7 +179,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         <p>
           <Link href="/#contact" className="btn btn-brand">
-            Parler de votre projet
+            Nous écrire
             <Icon name="arrow-right" size={16} />
           </Link>
         </p>
@@ -188,7 +188,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <CtaBand
         eyebrow="Agir avec nous"
         title="Chaque geste compte pour aller plus loin."
-        text="Soutenez nos formations, nos actions communautaires et nos programmes d'inclusion."
+        text="Soutenez Elles & Nous, Sara Savon et nos actions pour la santé des femmes."
         primaryLabel="Soutenir nos actions"
         primaryHref="/soutenir"
         secondaryLabel="Nous contacter"

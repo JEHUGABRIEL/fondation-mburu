@@ -70,7 +70,7 @@ export function SiteHeader() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
-    const onScroll = () => setStuck(window.scrollY > 150);
+    const onScroll = () => setStuck(window.scrollY > 8);
     onScroll();
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -81,67 +81,43 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className="site-head">
-      <div className="head-row">
-        <div className="head-bar">
-          <button
-            type="button"
-            className={`burger${open ? " on" : ""}`}
-            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            onClick={() => setOpen((value) => !value)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-
-          <Link href="/" className="brand" aria-label={`${site.name} - accueil`}>
-            <Image
-              src="/images/logo.png"
-              alt="Logo de la Fondation Mbûrü"
-              width={500}
-              height={500}
-              className="brand-img"
-              priority
-            />
-            <span className="brand-word">
-              <strong>Mbûrü</strong>
-              <small>Fondation · Femme résiliente, femme debout</small>
-            </span>
-          </Link>
-
-          <span className="head-social">
-            <a
-              href={site.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook - Fondation Mbûrü"
-            >
-              <Icon name="facebook" size={20} />
-            </a>
-            <a
-              href={`https://wa.me/${site.phoneHref.replace("+", "")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp - Fondation Mbûrü"
-            >
-              <Icon name="whatsapp" size={20} />
-            </a>
+    <header className={`site-head${stuck ? " stuck" : ""}`}>
+      <div className="head-in">
+        <Link href="/" className="brand" aria-label={`${site.name} - accueil`}>
+          <Image
+            src="/images/logo.png"
+            alt="Logo de la Fondation Mbûrü"
+            width={512}
+            height={512}
+            className="brand-img"
+            priority
+          />
+          <span className="brand-word">
+            <strong>Fondation Mbûrü</strong>
           </span>
-        </div>
-      </div>
+        </Link>
 
-      <nav className={`navbar${stuck ? " stuck" : ""}`} aria-label="Navigation principale">
-        <div className="navbar-in">
+        <nav className="navbar" aria-label="Navigation principale">
           <Nav variant="bar" />
-          <Link href="/soutenir" className="nav-cta">
-            <Icon name="heart" size={20} />
-            <span>Nous soutenir</span>
-          </Link>
-        </div>
-      </nav>
+        </nav>
+
+        <Link href="/soutenir" className="nav-cta">
+          Nous soutenir
+        </Link>
+
+        <button
+          type="button"
+          className={`burger${open ? " on" : ""}`}
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((value) => !value)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
 
       <div
         className={`mback${open ? " open" : ""}`}

@@ -1,6 +1,6 @@
 import { jwtVerify, SignJWT } from "jose";
 
-export const SESSION_COOKIE = "vpfa_admin";
+export const SESSION_COOKIE = "mburu_admin";
 export const SESSION_DURATION_S = 60 * 60 * 8;
 
 function secretKey() {

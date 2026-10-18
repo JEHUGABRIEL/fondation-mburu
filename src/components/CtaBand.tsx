@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Icon } from "@/components/Icon";
 
 type CtaBandProps = {
   eyebrow?: string;
@@ -21,21 +20,19 @@ export function CtaBand({
   secondaryHref = "/#contact",
 }: CtaBandProps) {
   return (
-    <section className="cta-band">
-      <div className="wrap cta-in">
-        <div className="cta-copy">
-          <p className="f-kick">{eyebrow}</p>
+    <section className="section wrap">
+      <div className="mb-cta">
+        <div>
+          <p className="mb-cta-eyebrow">{eyebrow}</p>
           <h2>{title}</h2>
           <p>{text}</p>
         </div>
-        <div className="cta-actions">
+        <div className="mb-actions">
           <Link href={primaryHref} className="btn btn-light">
             {primaryLabel}
-            <Icon name="arrow-right" size={20} />
           </Link>
           <Link href={secondaryHref} className="btn btn-ghost">
             {secondaryLabel}
-            <Icon name="mail" size={16} />
           </Link>
         </div>
       </div>

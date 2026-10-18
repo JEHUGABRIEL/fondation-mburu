@@ -60,7 +60,7 @@ export async function GET(_request: Request, { params }: RouteContext<"/admin/ex
   return new Response(csv, {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": `attachment; filename="vpfa-${kind}.csv"`,
+      "Content-Disposition": `attachment; filename="mburu-${kind}.csv"`,
       "Cache-Control": "no-store",
     },
   });

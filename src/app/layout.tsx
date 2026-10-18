@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -7,12 +7,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-poppins",
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -59,7 +53,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e3b06",
+  themeColor: "#123f1a",
   colorScheme: "light",
 };
 
@@ -69,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${poppins.variable} ${fraunces.variable}`}>
+    <html lang="fr" className={poppins.variable}>
       <body id="top">{children}</body>
     </html>
   );

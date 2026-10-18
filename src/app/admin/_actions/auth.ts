@@ -16,7 +16,7 @@ const loginSchema = z.object({
 });
 
 // Compared against when the e-mail is unknown, so both paths cost the same time.
-const dummyHash = hashPassword("vpfa-dummy-password");
+const dummyHash = hashPassword("mburu-dummy-password");
 
 export async function login(_previous: AdminFormState, formData: FormData): Promise<AdminFormState> {
   const parsed = loginSchema.safeParse(Object.fromEntries(formData));
