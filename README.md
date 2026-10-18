@@ -90,7 +90,7 @@ public/images/         logo et visuels optimisés (WebP)
 
 ## Crédits
 
-Les photographies d'illustration proviennent de Wikimedia Commons et sont utilisées sous licence Creative Commons (CC BY 2.0 et CC BY-SA 4.0). Le détail des attributions est disponible sur la page `/credits`. Ces images ne représentent pas nécessairement des activités conduites par l'ONG VPFA.
+Les photographies d'illustration proviennent de Wikimedia Commons et sont utilisées sous licence Creative Commons (CC BY 2.0 et CC BY-SA 4.0). Le détail des attributions est disponible sur la page `/credits`. Les autres photos proviennent de la page Facebook de la Fondation.
 
 ## Contenus à compléter
 
