@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icon";
 import { PalmIllustration } from "@/components/PalmIllustration";
-import { TestimonialForm } from "@/components/TestimonialForm";
+import { ReviewDialog } from "@/components/ReviewDialog";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { formatDate, getFormations, getPartners, getPosts, getTestimonials } from "@/lib/content";
 import { presidentMessage, site } from "@/lib/site";
@@ -180,13 +180,12 @@ export default async function HomePage() {
           <h2>Ils et elles en parlent.</h2>
         </div>
         <TestimonialSlider items={testimonials} />
-        <div className="two align-start mb-testimonial-form">
+        <div className="mb-review">
           <p>
             Vous êtes bénéficiaire, parent, mentor ou partenaire de la Fondation ?
-            Racontez-nous ce que nos actions ont changé pour vous. Votre témoignage est
-            relu par l&apos;équipe avant d&apos;être publié.
+            Racontez-nous ce que nos actions ont changé pour vous.
           </p>
-          <TestimonialForm />
+          <ReviewDialog />
         </div>
       </section>
 
@@ -211,16 +210,18 @@ export default async function HomePage() {
         </section>
       ) : null}
 
-      <section className="mb-grey" id="contact">
-        <div className="wrap section-in two align-start">
-          <div>
-            <div className="mb-head">
-              <h2>Nous écrire.</h2>
+      <section className="mb-contact-sec" id="contact">
+        <div className="wrap">
+          <div className="mb-contact-top">
+            <div>
+              <div className="mb-head">
+                <h2>Nous écrire.</h2>
+              </div>
+              <p>
+                Une question sur nos programmes, une envie de devenir mentor, un projet
+                de partenariat ? Nous revenons vers vous sous 48 h.
+              </p>
             </div>
-            <p>
-              Une question sur nos programmes, une envie de devenir mentor, un projet
-              de partenariat ? Nous revenons vers vous sous 48 h.
-            </p>
             <ul className="mb-contact">
               <li>
                 <Icon name="phone" size={20} />
@@ -248,7 +249,9 @@ export default async function HomePage() {
               </li>
             </ul>
           </div>
-          <ContactForm />
+          <div className="mb-contact-form">
+            <ContactForm />
+          </div>
         </div>
       </section>
 

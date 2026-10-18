@@ -3773,9 +3773,6 @@ h2 {
 .mb-empty {
   color: var(--muted);
 }
-.mb-testimonial-form {
-  margin-top: 2.6rem;
-}
 .form {
   background: var(--grey);
   border-radius: 32px;
@@ -4286,5 +4283,127 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   .btn:hover {
     transform: none;
+  }
+}
+
+/* Contact: the form straddles the grey band, half on it, half below */
+.mb-contact-sec {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  background: var(--grey);
+  padding-top: clamp(3.5rem, 7vw, 6rem);
+}
+.mb-contact-top {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+}
+.mb-contact-top .mb-contact {
+  margin: 0;
+}
+.mb-contact-form {
+  position: relative;
+  max-width: 880px;
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+}
+.mb-contact-form::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--paper);
+}
+.mb-contact-form .form {
+  background: #fff;
+  border: 1px solid var(--soft);
+  box-shadow: 0 24px 60px -30px rgba(15, 26, 17, 0.35);
+}
+
+/* "Donner votre avis" */
+.mb-review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 2.4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--soft);
+}
+.mb-review p {
+  max-width: 56ch;
+  color: var(--muted);
+}
+.mb-review .btn {
+  margin-top: 0;
+}
+
+/* Modal */
+.mb-modal {
+  width: min(640px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 32px;
+  background: #fff;
+  overflow: auto;
+}
+dialog.mb-modal {
+  margin-block: auto;
+  margin-inline: auto;
+}
+.mb-modal::backdrop {
+  background: rgba(12, 46, 18, 0.55);
+}
+.mb-modal[open] {
+  animation: mb-modal-in 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes mb-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+.mb-modal-in {
+  position: relative;
+}
+.mb-modal .form {
+  background: #fff;
+  border-radius: 0;
+}
+.mb-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--soft2);
+  color: var(--brand);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mb-modal-close:hover {
+  background: var(--soft);
+}
+.mb-modal .form-title {
+  padding-right: 3rem;
+}
+.mb-modal .row2 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 760px) {
+  .mb-contact-top {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
