@@ -5,8 +5,9 @@ import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icon";
 import { PalmIllustration } from "@/components/PalmIllustration";
 import { TestimonialForm } from "@/components/TestimonialForm";
+import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { formatDate, getFormations, getPartners, getPosts, getTestimonials } from "@/lib/content";
-import { site } from "@/lib/site";
+import { presidentMessage, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -117,12 +118,17 @@ export default async function HomePage() {
               « Comme le palmier, la femme fait mille choses à la fois. Notre
               fondation est née pour que cette force soit reconnue et soutenue. »
             </blockquote>
+            <div className="mb-founder-text">
+              {presidentMessage.map((paragraph) => (
+                <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+              ))}
+            </div>
             <p className="mb-cite">
               <strong>{site.president}</strong>
               <span>Présidente fondatrice</span>
             </p>
-            <Link href="/a-propos#presidente" className="line-more">
-              Lire le message complet
+            <Link href="/a-propos" className="line-more">
+              Découvrir la Fondation
             </Link>
           </div>
           <Image
@@ -173,24 +179,7 @@ export default async function HomePage() {
         <div className="mb-head">
           <h2>Ils et elles en parlent.</h2>
         </div>
-        {testimonials.length > 0 ? (
-          <ul className="mb-testimonials">
-            {testimonials.map((testimonial) => (
-              <li key={testimonial.id}>
-                <blockquote>« {testimonial.message} »</blockquote>
-                <p>
-                  <strong>{testimonial.name}</strong>
-                  {testimonial.role ? <span>{testimonial.role}</span> : null}
-                </p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="mb-empty">
-            Les premiers témoignages de nos bénéficiaires, de leurs familles et de nos
-            partenaires seront publiés ici.
-          </p>
-        )}
+        <TestimonialSlider items={testimonials} />
         <div className="two align-start mb-testimonial-form">
           <p>
             Vous êtes bénéficiaire, parent, mentor ou partenaire de la Fondation ?
