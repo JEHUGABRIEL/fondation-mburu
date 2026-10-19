@@ -4784,3 +4784,64 @@ dialog.mb-modal {
     height: min(38%, 340px);
   }
 }
+
+/* Hero carousel: one photo at a time, cross-fade with a slow zoom */
+.lt-hero-media.is-carousel {
+  display: block;
+  background: var(--soft);
+}
+.lt-hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.lt-hero-slide.on {
+  opacity: 1;
+}
+.lt-hero-slide .cover {
+  transform: scale(1.06);
+  transition: transform 6s linear;
+}
+.lt-hero-slide.on .cover {
+  transform: scale(1);
+}
+.lt-hero-dots {
+  position: absolute;
+  z-index: 2;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(15, 26, 17, 0.55);
+}
+.lt-hero-dots > button:not(.lt-hero-toggle) {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition:
+    width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.25s;
+}
+.lt-hero-dots > button.is-active {
+  width: 26px;
+  background: var(--soft);
+}
+.lt-hero-toggle {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}

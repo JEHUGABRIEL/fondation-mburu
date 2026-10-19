@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icon";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { NewsRail } from "@/components/NewsRail";
 import { ReviewDialog } from "@/components/ReviewDialog";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
@@ -116,20 +117,7 @@ export default async function HomePage() {
             </dl>
           </div>
         </div>
-        <div className="lt-hero-media">
-          {heroPhotos.map((photo, index) => (
-            <div className="lt-hero-photo" key={photo.src}>
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                priority={index < 2}
-                sizes="(max-width: 980px) 50vw, 25vw"
-                className="cover"
-              />
-            </div>
-          ))}
-        </div>
+        <HeroCarousel photos={heroPhotos} />
       </section>
 
       <section className="section wrap">
